@@ -1,0 +1,506 @@
+/* ============================================================================
+   TeacherReport.css - 교사 리포트 페이지 스타일
+   채점 페이지와 동일한 디자인 언어 적용
+   ========================================================================== */
+
+/* 전체 레이아웃 */
+.teacher-report {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* ============================================================================
+   헤더
+   ========================================================================== */
+
+.report-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.report-header .header-content h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.report-header .subtitle {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ============================================================================
+   메인 콘텐츠
+   ========================================================================== */
+
+.report-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 공통 카드 스타일 */
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* ============================================================================
+   데이터 부족 상태
+   ========================================================================== */
+
+.insufficient-data {
+  padding: 3rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.warning-icon-large {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.insufficient-data h2 {
+  margin: 0 0 2rem 0;
+  font-size: 1.5rem;
+  color: #1a202c;
+}
+
+.data-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(to right, #f8fafc, #f1f5f9);
+  border-radius: 12px;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-label {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.status-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.status-value.required {
+  color: #667eea;
+}
+
+.status-divider {
+  font-size: 2rem;
+  color: #cbd5e1;
+  font-weight: 700;
+}
+
+.guide-text {
+  color: #475569;
+  line-height: 1.8;
+  margin: 2rem 0;
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================================================
+   핵심 지표 섹션
+   ========================================================================== */
+
+.metrics-section {
+  margin-bottom: 3rem;
+}
+
+.metrics-section h2 {
+  font-size: 1.5rem;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  border-color: #667eea;
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.metric-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.metric-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.metric-badge.level-0 {
+  background: #94a3b8;
+}
+
+.metric-badge.level-1 {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.metric-badge.level-2 {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.metric-badge.level-3 {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 1rem 0;
+  line-height: 1;
+}
+
+.metric-ci,
+.metric-range {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0.5rem 0;
+}
+
+.metric-description {
+  color: #475569;
+  line-height: 1.6;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.metric-feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(to right, #fef3c7, #fde68a);
+  border-left: 4px solid #fbbf24;
+  border-radius: 8px;
+  color: #92400e;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   채점 통계 섹션
+   ========================================================================== */
+
+.stats-section {
+  margin-bottom: 3rem;
+}
+
+.stats-section h2 {
+  font-size: 1.5rem;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 0.75rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #667eea;
+  line-height: 1;
+}
+
+/* ============================================================================
+   개선 제안 섹션
+   ========================================================================== */
+
+.recommendations-section {
+  margin-bottom: 3rem;
+}
+
+.recommendations-section h2 {
+  font-size: 1.5rem;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+}
+
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recommendation-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.recommendation-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.recommendation-item.positive {
+  border-left-color: #10b981;
+  background: linear-gradient(to right, #ffffff, #f0fdf4);
+}
+
+.recommendation-icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.recommendation-content {
+  flex: 1;
+}
+
+.recommendation-content h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.1rem;
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.recommendation-content p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   다음 단계 섹션
+   ========================================================================== */
+
+.next-steps {
+  margin-bottom: 2rem;
+}
+
+.next-steps h2 {
+  font-size: 1.5rem;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+}
+
+.next-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.next-step-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  display: block;
+}
+
+.next-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.step-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.next-step-card h4 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.2rem;
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.next-step-card p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   로딩 & 에러 상태
+   ========================================================================== */
+
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* ============================================================================
+   반응형 디자인
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .metrics-grid,
+  .stats-grid,
+  .next-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .report-header {
+    padding: 1.5rem;
+  }
+
+  .report-header .header-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .report-content {
+    padding: 1rem;
+  }
+
+  .metrics-grid,
+  .stats-grid,
+  .next-steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-status {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .status-divider {
+    transform: rotate(90deg);
+  }
+
+  .metric-card,
+  .stat-item,
+  .next-step-card {
+    padding: 1.5rem;
+  }
+
+  .metric-value,
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .recommendation-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+

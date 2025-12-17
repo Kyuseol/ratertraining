@@ -1,0 +1,546 @@
+/* ExpertRating.css - 전문가 채점 페이지 스타일 */
+
+.expert-rating {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0891b2 0%, #06b6d4 50%, #22d3ee 100%);
+}
+
+.expert-rating.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* 헤더 */
+.er-header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.er-header-content h1 {
+  color: white;
+  margin: 0 0 3px 0;
+  font-size: 1.5rem;
+}
+
+.er-header-content p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.er-header-nav {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-nav {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 메시지 */
+.er-message {
+  padding: 12px 20px;
+  margin: 15px 40px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.er-message.success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.er-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.er-message.info {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.er-message button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* 전문가 선택 */
+.expert-selector {
+  padding: 15px 40px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.expert-selector label {
+  color: white;
+  font-weight: 500;
+}
+
+.expert-selector select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  min-width: 250px;
+}
+
+.expert-progress-summary {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.expert-progress-summary .progress-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+}
+
+.mini-progress-bar {
+  width: 150px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mini-progress-bar .fill {
+  height: 100%;
+  background: #10b981;
+  border-radius: 4px;
+}
+
+.no-expert-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* 메인 영역 */
+.er-main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 150px);
+}
+
+/* 에세이 목록 */
+.essay-list {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}
+
+.essay-list h3 {
+  margin: 0 0 15px 0;
+  color: #0891b2;
+  font-size: 1rem;
+}
+
+.essay-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.essay-item {
+  background: #f8fafc;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.essay-item:hover {
+  background: #e0f2fe;
+  border-color: #0891b2;
+}
+
+.essay-item.selected {
+  background: #cffafe;
+  border-color: #06b6d4;
+}
+
+.essay-item.complete {
+  background: #d1fae5;
+}
+
+.essay-item.complete.selected {
+  border-color: #10b981;
+}
+
+.essay-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.essay-title {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.9rem;
+}
+
+.essay-tags {
+  display: flex;
+  gap: 4px;
+}
+
+.essay-tags .tag {
+  font-size: 0.65rem;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.essay-tags .tag.anchor {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.essay-tags .tag.calibration {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.essay-item-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.essay-item-progress .progress-bar {
+  flex: 1;
+  height: 4px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.essay-item-progress .progress-fill {
+  height: 100%;
+  background: #06b6d4;
+  border-radius: 2px;
+}
+
+.essay-item.complete .progress-fill {
+  background: #10b981;
+}
+
+.essay-item-progress .progress-text {
+  font-size: 0.7rem;
+  color: #64748b;
+  min-width: 35px;
+  text-align: right;
+}
+
+/* 채점 영역 */
+.rating-area {
+  background: white;
+  padding: 20px 25px;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+}
+
+.no-essay-selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #94a3b8;
+}
+
+/* 에세이 내용 */
+.essay-content-section {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.essay-header {
+  margin-bottom: 15px;
+}
+
+.essay-header h2 {
+  margin: 0 0 8px 0;
+  color: #1e293b;
+  font-size: 1.3rem;
+}
+
+.essay-meta {
+  display: flex;
+  gap: 15px;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.essay-content {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 1.8;
+  color: #334155;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+}
+
+/* 채점 폼 */
+.scoring-form h3 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.scoring-instruction {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.rubric-category {
+  margin-bottom: 20px;
+}
+
+.rubric-category h4 {
+  margin: 0 0 10px 0;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #0891b2, #06b6d4);
+  color: white;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.rubric-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 15px;
+  align-items: center;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.rubric-info {
+  min-width: 0;
+}
+
+.rubric-name {
+  display: block;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+.rubric-desc {
+  display: block;
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.score-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.score-btn {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.score-btn:hover {
+  border-color: #06b6d4;
+  background: #ecfeff;
+}
+
+.score-btn.selected {
+  border-color: #06b6d4;
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  color: white;
+}
+
+.confidence-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confidence-selector label {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.confidence-selector select {
+  padding: 6px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  min-width: 100px;
+}
+
+/* 액션 버튼 */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 2px solid #e2e8f0;
+  justify-content: center;
+}
+
+.btn-nav-essay {
+  padding: 12px 20px;
+  background: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  color: #475569;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-nav-essay:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+.btn-nav-essay:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-save {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #0891b2, #06b6d4);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-save:hover:not(:disabled) {
+  box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-save:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.btn-save-next {
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-save-next:hover:not(:disabled) {
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-save-next:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .er-main {
+    grid-template-columns: 1fr;
+  }
+
+  .essay-list {
+    max-height: 300px;
+  }
+
+  .rating-area {
+    max-height: none;
+  }
+
+  .rubric-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .score-buttons,
+  .confidence-selector {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .er-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .expert-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .expert-progress-summary {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .action-buttons {
+    flex-wrap: wrap;
+  }
+}
+

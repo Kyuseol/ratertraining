@@ -1,0 +1,36 @@
+# .dockerignore for R Backend
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+
+# R history and data
+.Rhistory
+.RData
+.Rproj.user
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Documentation
+README.md
+*.md
+

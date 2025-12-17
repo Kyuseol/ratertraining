@@ -1,0 +1,521 @@
+/* ============================================================================
+   AdminDashboard.css - 관리자 대시보드 스타일
+   채점 페이지와 동일한 디자인 언어 적용
+   ========================================================================== */
+
+/* 전체 레이아웃 */
+.admin-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* ============================================================================
+   헤더
+   ========================================================================== */
+
+.dashboard-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
+  color: white;
+  padding: 2.5rem 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.header-content .subtitle {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.header-btn {
+  padding: 0.65rem 1.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.header-btn.consensus {
+  background: rgba(16, 185, 129, 0.3);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.header-btn.consensus:hover {
+  background: rgba(16, 185, 129, 0.5);
+}
+
+.header-btn.experts {
+  background: rgba(124, 58, 237, 0.3);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+
+.header-btn.experts:hover {
+  background: rgba(124, 58, 237, 0.5);
+}
+
+.header-btn.calibration {
+  background: rgba(245, 158, 11, 0.3);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.header-btn.calibration:hover {
+  background: rgba(245, 158, 11, 0.5);
+}
+
+.header-btn.logout {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.header-btn.logout:hover {
+  background: rgba(239, 68, 68, 0.3);
+}
+
+/* ============================================================================
+   메인 콘텐츠
+   ========================================================================== */
+
+.dashboard-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 공통 카드 스타일 */
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ============================================================================
+   섹션 타이틀
+   ========================================================================== */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 1.5rem 0;
+}
+
+.section-title:first-child {
+  margin-top: 0;
+}
+
+.section-title h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1a202c;
+}
+
+/* ============================================================================
+   Blueprint 구성 상태 그리드
+   ========================================================================== */
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.status-card {
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1e3a8a, #7c3aed);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.status-card:hover::before {
+  transform: scaleX(1);
+}
+
+.status-icon-wrapper {
+  margin-bottom: 1rem;
+}
+
+.status-icon {
+  font-size: 3rem;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.status-label {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.status-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 0.75rem;
+}
+
+.status-target {
+  font-size: 1.2rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.status-badge.good {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+.status-badge.warning {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.status-badge.danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.status-badge.info {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.status-info {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* 상태별 카드 배경 */
+.status-card.good {
+  background: linear-gradient(to bottom, #ffffff, #f0fdf4);
+  border: 2px solid #10b981;
+}
+
+.status-card.warning {
+  background: linear-gradient(to bottom, #ffffff, #fef3c7);
+  border: 2px solid #f59e0b;
+}
+
+.status-card.danger {
+  background: linear-gradient(to bottom, #ffffff, #fee2e2);
+  border: 2px solid #ef4444;
+}
+
+/* ============================================================================
+   시스템 통계 그리드
+   ========================================================================== */
+
+.system-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-box {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.stat-box .stat-icon {
+  font-size: 3rem;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ============================================================================
+   빠른 액션 그리드
+   ========================================================================== */
+
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.action-card {
+  cursor: pointer;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.action-card:hover {
+  border-color: #7c3aed;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.2);
+}
+
+.action-icon-large {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.action-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.action-description {
+  margin: 0 0 1.5rem 0;
+  color: #64748b;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.action-button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button.primary {
+  background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+  color: white;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.action-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.4);
+}
+
+/* ============================================================================
+   Blueprint 요구사항 그리드
+   ========================================================================== */
+
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.requirement-card {
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.requirement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1e3a8a, #7c3aed);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.requirement-card:hover::before {
+  transform: scaleX(1);
+}
+
+.requirement-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+}
+
+.requirement-title {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  color: #1a202c;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.requirement-list {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #475569;
+  line-height: 2;
+}
+
+.requirement-list li {
+  margin-bottom: 0.75rem;
+}
+
+.requirement-list li:last-child {
+  margin-bottom: 0;
+}
+
+.requirement-list strong {
+  color: #1a202c;
+  font-weight: 600;
+}
+
+.requirement-list.numbered {
+  list-style-type: decimal;
+}
+
+.requirement-list.numbered li {
+  padding-left: 0.5rem;
+}
+
+/* ============================================================================
+   로딩 상태
+   ========================================================================== */
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+/* ============================================================================
+   반응형 디자인
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .status-grid,
+  .system-stats-grid,
+  .action-grid,
+  .requirements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 1.5rem;
+  }
+
+  .header-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-content {
+    padding: 1rem;
+  }
+
+  .status-grid,
+  .system-stats-grid,
+  .action-grid,
+  .requirements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-card,
+  .stat-box,
+  .action-card,
+  .requirement-card {
+    padding: 1.5rem;
+  }
+
+  .status-value,
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .action-icon-large {
+    font-size: 3rem;
+  }
+}
+
